@@ -6,32 +6,28 @@ using UnityEngine.UI;
 public class PlayerPhoto_Proto : MonoBehaviour
 {
     // Start is called before the first frame update
-    bool isSetCamera;
-    [SerializeField] Camera _camera;
+    //bool isSetCamera;
+    //[SerializeField] Camera _camera;
     [SerializeField] GameObject CameraPhone;
-    [SerializeField] RenderTexture CameraTexture;
 
-    [SerializeField] RawImage PhotoImage;
+    //[SerializeField]
+    RawImage PhotoImage;
     void Start()
     {
-        isSetCamera = false;
-        CameraPhone.SetActive(isSetCamera);
-        PhotoImage.gameObject.SetActive(false);
+        CameraPhone.SetActive(false);
     }
 
-    public void CameraSet()
+    public void CameraSet(bool _cameraSet)
     {
-        isSetCamera = !isSetCamera;
-        CameraPhone.SetActive(isSetCamera);
+        CameraPhone.SetActive(_cameraSet);
     }
     public void CameraShot()
     {
-        if (!isSetCamera) return;
-        StartCoroutine(Save(_camera, new Vector2Int(1920, 1080), Application.dataPath + "/" + "test.png"));
+        //StartCoroutine(Save(_camera, new Vector2Int(1920, 1080), Application.dataPath + "/" + "test.png"));
     }
 
     // カメラ映像を保存
-    public IEnumerator Save(Camera camera, Vector2Int size, string savePath)
+    /*public IEnumerator Save(Camera camera, Vector2Int size, string savePath)
     {
         // 今のフレームでのカメラのレンダリングを待つ
         yield return new WaitForEndOfFrame();
@@ -61,7 +57,7 @@ public class PlayerPhoto_Proto : MonoBehaviour
         }
 
         RenderTexture.active = cache;
-        camera.targetTexture = CameraTexture;
+        //camera.targetTexture = CameraTexture;
         Destroy(renderTexture);
         PhotoImage.texture = texture;
         PhotoImage.gameObject.SetActive(true);
@@ -71,4 +67,5 @@ public class PlayerPhoto_Proto : MonoBehaviour
         Cursor.visible = true;
         yield return null;
     }
+    */
 }

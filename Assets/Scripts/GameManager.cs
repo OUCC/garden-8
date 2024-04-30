@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     }
     public void GetReport()
     {
-
+        Debug.Log("ƒŒƒ|[ƒg‰ñûŠ®—¹");
+        isGetReport = true;
     }
 }
